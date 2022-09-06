@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true
+  swcMinify: true,
+  basePath: "/di-planner"
 }
 
-console.log("ENV", process.env.NODE_ENV)
-
-if (process.env.NODE_ENV === 'production') nextConfig["basePath"] = "/di-planner"
+if (process.env.NODE_ENV !== 'production') delete nextConfig.basePath
 
 module.exports = nextConfig
